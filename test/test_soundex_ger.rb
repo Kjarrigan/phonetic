@@ -7,7 +7,7 @@ class TestSoundexGer < Test::Unit::TestCase
   include Phonetic
   
   def test_basic
-    assert_equal '', soundex_ger('aeijouyäöü')
+    assert_equal '0', soundex_ger('aeijouyäöü')
     assert_equal '', soundex_ger('h')
     assert_equal '1', soundex_ger('b')
     assert_equal '3', soundex_ger('fvw')

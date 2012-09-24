@@ -86,7 +86,9 @@ module Phonetic
     end
     
     return sdx_result if level == 0
-    return sdx_result.squeeze if level == 1
-    return sdx_result.squeeze.gsub('0', '') # Doppelte und 0en raus
+    sdx_result = sdx_result.squeeze
+    return sdx_result if level == 1
+    sdx_result = sdx_result[0,1] + sdx_result[1..-1].gsub('0','') if sdx_result.size > 1
+    return sdx_result
   end
 end
